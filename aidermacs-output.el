@@ -194,12 +194,7 @@ This function is called when an ediff session is quit."
                            (buffer-name ediff-buffer-A)))
     ;; Restore original window configuration
     (when aidermacs--pre-ediff-window-config
-      (set-window-configuration aidermacs--pre-ediff-window-config))
-
-    ;; Show the file selection buffer again if we have files in the queue
-    (with-current-buffer (get-buffer (aidermacs-get-buffer-name))
-      (when aidermacs--ediff-queue
-        (aidermacs--show-file-selection-buffer aidermacs--ediff-queue)))))
+      (set-window-configuration aidermacs--pre-ediff-window-config))))
 
 (defun aidermacs--setup-ediff-cleanup-hooks ()
   "Set up hooks to ensure proper cleanup of temporary buffers after ediff.
